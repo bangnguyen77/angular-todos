@@ -29,10 +29,3 @@ export class AppComponent {
     console.log(' App Component' + clickedTask);
   }
 }
-
-export class Task {
-  public done: boolean = false;
-  constructor(public description: string, public id: number) {
-
-  }
-}
