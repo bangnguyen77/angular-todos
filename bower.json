@@ -1,0 +1,15 @@
+{
+  "name": "todos",
+  "description": "",
+  "main": "",
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
