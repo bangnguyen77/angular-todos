@@ -8,19 +8,24 @@ import { Task } from './task.model';
     <div class="task-form">
       <h3>Create Task:</h3>
       <input placeholder="Description" class="col-sm-8 input-lg" #newDescription>
-      <button (click)="addTask(newDescription)" class="btn-success btn-lg add-button">Add</button>
+      <input placeholder="Priority" class="col-sm-8 input-lg" #newPriority>
+      <input placeholder="Category" class="col-sm-8 input-lg" #newCategory>
+      <button (click)="addTask(newDescription, newPriority, newCategory)" class="btn-success btn-lg add-button">Add</button>
     </div>
   `
 })
 export class NewTaskComponent {
-  public onSubmitNewTask: EventEmitter<String>;
+  public onSubmitNewTask: EventEmitter<string[]>;
   constructor(){
     this.onSubmitNewTask = new EventEmitter();
   }
-  addTask(userDescription: HTMLInputElement) {
-    this.onSubmitNewTask.emit(userDescription.value);
+  addTask(userDescription: HTMLInputElement, userPriority: HTMLInputElement, userCategory: HTMLInputElement) {
+    var newTaskParams: string[] = [userDescription.value, userPriority.value, userCategory.value];
+    this.onSubmitNewTask.emit(newTaskParams);
     console.log(userDescription.value);
+    console.log(userPriority.value);
     userDescription.value = "";
+    userPriority.value = "";
   }
 }
 

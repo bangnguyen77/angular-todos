@@ -3,7 +3,7 @@ import { TaskComponent } from './task.component';
 import { Task } from './task.model';
 import { EditTaskDetailsComponent } from './edit-task-details.component';
 import { NewTaskComponent } from './new-task.component';
-import {DonePipe} from './done.pipe';
+import { DonePipe } from './done.pipe';
 
 @Component({
   selector: 'task-list',
@@ -39,9 +39,10 @@ export class TaskListComponent {
     this.selectedTask = clickedTask;
     this.onTaskSelect.emit(clickedTask);
   }
-  createTask(description: string): void {
+  createTask(taskParams: string[]): void {
+    console.log(this.taskList.length)
     this.taskList.push(
-      new Task(description, this.taskList.length)
+      new Task(taskParams[0], taskParams[1], taskParams[2], this.taskList.length)
     );
   }
   onChange(filterOption) {
